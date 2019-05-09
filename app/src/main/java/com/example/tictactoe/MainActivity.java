@@ -75,10 +75,10 @@ public class MainActivity extends AppCompatActivity {
 
                     for(int gameIndex:gameState){
 
-                        if(gameIndex == 2) {
+                        if(gameIndex == 2)
                             isGameOver = false;
-                            break;
-                        }
+
+
                     }
 
                     if(isGameOver){
