@@ -10,15 +10,16 @@ public class MainActivity extends AppCompatActivity {
     // Global variables
 
     int activePlayer = 0; // 1 for red and 0 for yellow
-    int[] gameState = {2,2,2,2,2,2,2,2}; //Later we can update the states of the player. Intially 2 means unplayed.
+    int[] gameState = {2,2,2,2,2,2,2,2,2}; //Later we can update the states of the player. Intially 2 means unplayed.
 
 
     public void animation(View view){
 
         ImageView counter = (ImageView)view;
-        counter.setVisibility(View.VISIBLE);
-        counter.setTranslationY(-2000f);
+        //counter.setTranslationY(-2000f);
+
         int tappedCounter = Integer.parseInt(counter.getTag().toString());
+        System.out.println(tappedCounter+" is clicked!");
 
 
         if(gameState[tappedCounter] == 2) {
@@ -28,11 +29,13 @@ public class MainActivity extends AppCompatActivity {
             //Update the state of the game
 
             gameState[tappedCounter] = activePlayer;
+            counter.setTranslationY(-2000f);
 
             if (activePlayer == 0) {
                 counter.setImageResource(R.drawable.yellow);
                 activePlayer = 1;
             } else {
+
                 counter.setImageResource(R.drawable.red);
                 activePlayer = 0;
             }
